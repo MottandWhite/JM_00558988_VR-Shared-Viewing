@@ -7,6 +7,7 @@ public class AudioSwitcher : MonoBehaviour
 {
     public AudioMixerSnapshot stereo;
     public AudioMixerSnapshot spatialised;
+    public TextMesh text;
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +21,13 @@ public class AudioSwitcher : MonoBehaviour
         if(OVRInput.Get(OVRInput.Button.One))
         {
             stereo.TransitionTo(.01f);
+            text.text = "Audio Type B";
         }
 
         if(OVRInput.Get(OVRInput.Button.Two))
         {
             spatialised.TransitionTo(.01f);
+            text.text = "Audio Type A";
         }
     }
 }
